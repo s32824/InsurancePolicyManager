@@ -45,6 +45,34 @@ public class Policy {
         }
     }
 
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public double getBasePremium() {
+        return basePremium;
+    }
+
+    public int getRiskLevel() {
+        return riskLevel;
+    }
+
+    public double getVehicleValue() {
+        return vehicleValue;
+    }
+
+    public boolean isHasAlarm() {
+        return hasAlarm;
+    }
+
+    public boolean isClaimFreeClient() {
+        return claimFreeClient;
+    }
+
     public static int getCreatedPolicyCount() {
         return createdPolicyCount;
     }
