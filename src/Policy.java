@@ -32,7 +32,22 @@ public class Policy {
     }
 
     public double calculateRenewalPremium() {
-        return calculateFinalPremium() * 1.05;
+        double currentPremium = calculateFinalPremium();
+        double renewal = currentPremium;
+
+        if (riskLevel == 4) renewal *= 1.10;
+        else if (riskLevel >= 5) renewal *= 1.20;
+
+        if (vehicleValue > 60000) renewal += 150;
+
+        if (claimFreeClient) renewal *= 0.92;
+
+        if (hasAlarm) renewal *= 0.95;
+
+        if (renewal < currentPremium * 0.90) renewal = currentPremium * 0.90;
+        if (renewal > currentPremium * 1.25) renewal = currentPremium * 1.25;
+
+        return Math.round(renewal * 100.0) / 100.0;
     }
 
     public String getRiskSummary() {
